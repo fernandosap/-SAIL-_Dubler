@@ -1,0 +1,9 @@
+---
+applications:
+- name: dubler
+  memory: 256M
+  instances: 1
+  disk_quota: 256M
+  command: node 'app.js'
+  buildpacks: 
+      - nodejs_buildpack
