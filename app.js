@@ -4,6 +4,8 @@ const path = require("path");
 
 var app = express();
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -11,7 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 var port = 8080;
 
 app.get('/',function(req,res){
-	res.sendFile(path.join(__dirname+'/public/index.html'));
+	res.render("index")
 });
 
 app.get('/index.html',function(req,res){
@@ -19,19 +21,31 @@ app.get('/index.html',function(req,res){
 });
 
 app.get('/about',function(req,res){
-	res.sendFile(path.join(__dirname+'/public/about.html'));
+	res.render("about")
 });
 
 app.get('/contact',function(req,res){
-	res.sendFile(path.join(__dirname+'/public/contact.html'));
+	res.render("contact")
 });
 
-app.get('/srp',function(req,res){
-	res.sendFile(path.join(__dirname+'/public/srp.html'));
+app.get('/services',function(req,res){
+	res.render("services")
+});
+
+app.get('/team',function(req,res){
+	res.render("team")
+});
+
+app.get('/checkout',function(req,res){
+	res.render("checkout")
+});
+
+app.get('/news',function(req,res){
+	res.render("news")
 });
 
 app.get('/more',function(req,res){
-	res.sendFile(path.join(__dirname+'/public/more.html'));
+	res.render("services")
 });
 
 
